@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Get Location</title>
+<link rel="stylesheet" type="text/css" href="/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Imbue:opsz,wght@10..100,100..900&family=Playwrite+HU:wght@100..400&family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="wrap">
+    <h1>Hello from <%= userRegion %></h1>
+    <p>This is your weather report in 14 days time.</p>
+    <h2><%= weatherReport %></h2>
+    <img src=<%= image %>>
+    <p><strong>Advice:</strong></p>
+    <p style="color: aquamarine;"><%= advice %></p>
+  </div>
+
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const hasLatLon = urlParams.has("lat") && urlParams.has("lon");
+
+    if (!hasLatLon) {
+      navigator.geolocation.getCurrentPosition(
+        function (position) {
+          const lat = position.coords.latitude;
+          const lon = position.coords.longitude;
+          window.location.href = `/?lat=${lat}&lon=${lon}`;
+        },
+        function (err) {
+          alert("Location access denied. Please allow location or enter your city manually.");
+        }
+      );
+    }
+  </script>
+</body>
+
+</html>

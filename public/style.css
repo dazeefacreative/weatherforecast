@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(19, 36, 68);
+    color: white;      
+    font-family: "TikTok Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+    text-align: center;
+}
+
+.wrap{
+    height: 60vh;
+    padding: 100px 0;
+}
+
+h1{
+    margin-bottom: 50px; 
+    color: #61a0fd;
+    font-family: "Playwrite HU", cursive;
+}
